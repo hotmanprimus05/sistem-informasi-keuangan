@@ -11,7 +11,7 @@
     <h1>{{ $judul }}</h1>
 
 
-    {{-- Laporan Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])); }} --}}
+    {{-- Laporan Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])) }} --}}
 
     <table border="1" cellspacing="0">
         <thead>
@@ -25,17 +25,17 @@
             </tr>
         </thead>
         <tbody>
-            
+
             @foreach ($reports as $debt)
             <tr>
-                <td>{{ $loop->iteration }}</td> 
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $debt->employee->nama }}</td>
-                <td>{{ date('d-M-Y', strtotime($debt->tgl_pinjam)); }}</td>
-                
+                <td>{{ date('d-M-Y', strtotime($debt->tgl_pinjam)) }}</td>
+
                 <td>@currency($debt->jumlah_hutang)</td>
 
                 <td>{{ $debt->keterangan }}</td>
-                <td>{{ date('d-M-Y', strtotime($debt->tgl_jatuh_tempo)); }}</td>
+                <td>{{ date('d-M-Y', strtotime($debt->tgl_jatuh_tempo)) }}</td>
             </tr>
             @endforeach
         </tbody>
@@ -48,4 +48,3 @@
 
 </body>
 </html>
-            

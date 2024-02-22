@@ -7,7 +7,7 @@
     <title>Data-data Gaji Karyawan</title>
 </head>
 <body>
-    Dari Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} Sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])); }}
+    Dari Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} Sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])) }}
 
     <br>
 
@@ -42,6 +42,6 @@
 
         </tbody>
     </table>
-    
+
 </body>
 </html>

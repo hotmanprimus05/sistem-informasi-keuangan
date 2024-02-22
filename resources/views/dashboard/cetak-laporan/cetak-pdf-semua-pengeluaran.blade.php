@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
 </head>
-<style> 
-    
+<style>
+
     .header-text {
         text-align: center;
     }
@@ -41,11 +41,11 @@
             <div>
                 Periode: {{ date('F', strtotime($tanggal['awal'])) }}
             </div>
-            
+
             <div>
-                Dari Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} Sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])); }}
+                Dari Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} Sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])) }}
             </div>
-            
+
         <br><br>
         <table border="1" cellspacing="0" class="table1">
             <thead>
@@ -58,13 +58,13 @@
                 </tr>
             </thead>
             <tbody>
-                
+
                 @foreach ($reports as $report)
                 <tr>
-                    <td>{{ $loop->iteration }}</td> 
+                    <td>{{ $loop->iteration }}</td>
                     {{-- <td>{{ $income->tanggal }}</td> --}}
-                    <td>{{ date('d-M-Y H:i', strtotime($report->tanggal)); }}</td>
-                    
+                    <td>{{ date('d-M-Y H:i', strtotime($report->tanggal)) }}</td>
+
                     <td>@currency($report->nominal)</td>
 
                     <td>
@@ -78,7 +78,7 @@
                         @endforeach
                     </td>
 
-                    
+
                     {{-- <td>{{ $report->keterangan }}</td> --}}
                 </tr>
                 @endforeach

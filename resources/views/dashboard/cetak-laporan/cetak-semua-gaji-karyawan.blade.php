@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
-    
+
     {{-- CSS ASSETS --}}
     {{-- <link href="{{ URL::asset('css1/styles.css') }}" rel="stylesheet" /> --}}
     <style>
@@ -13,7 +13,7 @@
             display: flex;
             justify-content: space-between;
         }
-        
+
         .header-text {
             margin-left: -150px;
             text-align: center;
@@ -51,9 +51,9 @@
     <div>
         Periode: {{ date('F', strtotime($tanggal['awal'])) }}
     </div>
-    
-    Dari Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} Sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])); }}
-    
+
+    Dari Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} Sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])) }}
+
     <br><br>
 
     {{-- Detail Gaji --}}
@@ -103,8 +103,8 @@
             <div class="col-lg-4"></div>
             <div class="col-lg-4">_______________________________</div>
         </div> --}}
-    
-    
+
+
     <script>
         window.print();
     </script>

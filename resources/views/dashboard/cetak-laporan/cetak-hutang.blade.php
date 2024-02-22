@@ -14,7 +14,7 @@
             display: flex;
             justify-content: space-between;
         }
-        
+
         .header-text {
             margin-left: -150px;
             text-align: center;
@@ -51,7 +51,7 @@
         Periode: {{ date('F', strtotime($tanggal['awal'])) }}
     </div>
 
-    Laporan Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])); }}
+    Laporan Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])) }}
 
     <br><br>
 
@@ -67,10 +67,10 @@
             </tr>
         </thead>
         <tbody>
-            
+
             @foreach ($reports as $debt)
             <tr>
-                <td>{{ $loop->iteration }}</td> 
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $debt->employee->nama }}</td>
                 <td>{{ date('d/m/Y', strtotime($debt->tgl_pinjam)) }}</td>
 
@@ -81,7 +81,7 @@
                         {{ date('d/m/Y', strtotime($debt->tgl_jatuh_tempo)) }}
                     @endif
                 </td>
-                
+
                 <td>@currency($debt->jumlah_hutang)</td>
 
                 <td>{{ $debt->keterangan }}</td>
@@ -97,4 +97,3 @@
 
 </body>
 </html>
-            

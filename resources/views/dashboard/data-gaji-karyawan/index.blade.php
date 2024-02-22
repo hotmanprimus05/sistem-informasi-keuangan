@@ -47,11 +47,11 @@
                     <form action="/cetak-laporan/excel-semua-pemasukan" method="GET">
                         @method('get')
                         <button type="submit" class="btn btn-success dropdown-item">EXCEL</button>
-                    </form>   
+                    </form>
                 </li>
             </ul>
         </div> --}}
-        
+
     </div>
     {{-- End Button --}}
 
@@ -108,13 +108,13 @@
                             @foreach ($employeeSalaries as $row)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ date('d-M-Y', strtotime($row->tgl_gajian)); }}</td>
-                                
+                                <td>{{ date('d-M-Y', strtotime($row->tgl_gajian)) }}</td>
+
                                 <td>{{ $row->employee->nama }}</td>
                                 <td>{{ $row->salary->jabatan }}</td>
 
                                 <td>@currency($row->salary->gaji_pokok + $row->salary->tj_transport + $row->salary->uang_makan)</td>
-                                
+
                                 {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}
                                 @if (auth()->user()->role_id == 1)
                                     <td>
@@ -133,7 +133,7 @@
                                 @endif
                             </tr>
                             @endforeach
-                            
+
                         </tbody>
                     </table>
                     {{-- End Table --}}
@@ -143,7 +143,7 @@
         </div>
     </div>
 
-    
+
 </div>
 
 @endsection

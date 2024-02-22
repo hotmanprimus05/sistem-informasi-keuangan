@@ -13,7 +13,7 @@
     </nav>
     {{-- End Breadcrumb --}}
 
-    
+
     {{-- Card --}}
     <div class="card mb-4">
         <div class="card-header">
@@ -45,18 +45,18 @@
                     @foreach ($employeeSalary as $row)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ date('d-M-Y', strtotime($row->tgl_gajian)); }}</td>
+                        <td>{{ date('d-M-Y', strtotime($row->tgl_gajian)) }}</td>
                         <td>{{ $row->employee->nama }}</td>
                         <td>{{ $row->salary->jabatan }}</td>
                         <td>@currency($row->salary->gaji_pokok + $row->salary->tj_transport + $row->salary->uang_makan)</td>
-                        
+
                         @php
                             $salary += $row->salary->gaji_pokok + $row->salary->tj_transport + $row->salary->uang_makan;
                         @endphp
                     </tr>
                     @endforeach
-                    
-                    
+
+
                 </tbody>
             </table>
             {{-- End Table --}}

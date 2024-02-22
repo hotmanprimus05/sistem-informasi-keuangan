@@ -68,4 +68,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Outcome::class);
     }
+
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
 }

@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
 
-    
+
 </head>
 <body>
 
-    Laporan Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])); }}
+    Laporan Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])) }}
 
     <br>
 
@@ -26,17 +26,17 @@
             </tr>
         </thead>
         <tbody>
-            
+
             @foreach ($reports as $debt)
             <tr>
-                <td>{{ $loop->iteration }}</td> 
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $debt->employee->nama }}</td>
-                <td>{{ date('d-M-Y', strtotime($debt->tgl_pinjam)); }}</td>
-                
+                <td>{{ date('d-M-Y', strtotime($debt->tgl_pinjam)) }}</td>
+
                 <td>@currency($debt->jumlah_hutang)</td>
 
                 <td>{{ $debt->keterangan }}</td>
-                <td>{{ date('d-M-Y', strtotime($debt->tgl_jatuh_tempo)); }}</td>
+                <td>{{ date('d-M-Y', strtotime($debt->tgl_jatuh_tempo)) }}</td>
             </tr>
             @endforeach
         </tbody>
@@ -45,4 +45,3 @@
 
 </body>
 </html>
-            

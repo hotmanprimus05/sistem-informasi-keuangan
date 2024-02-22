@@ -18,13 +18,13 @@
     </nav>
     {{-- End Breadcrumb --}}
 
-    
+
 
     <div class="d-flex">
         <div class="me-auto pe-1">
             <a href="/data/pemasukan/create" class="btn btn-primary mb-1">Tambah Data Pemasukan</a>
         </div>
-        
+
         <div>
             <a href="/kategori" class="btn btn-info mb-1">Data Sumber</a>
 
@@ -49,20 +49,20 @@
                         <form action="/cetak-laporan/excel-semua-pemasukan" method="GET">
                             @method('get')
                             <button type="submit" class="btn btn-success dropdown-item">EXCEL</button>
-                        </form>   
+                        </form>
                     </li>
                 </ul>
             </div> --}}
 
-            
+
         </div>
         <div>
-            
+
         </div>
         <div>
-            
+
         </div>
-    
+
     </div>
 
     <div class="card mb-4">
@@ -110,10 +110,10 @@
                     @endif
                 </tfoot>
                 <tbody>
-                    
+
                     @foreach ($incomes as $income)
                     <tr>
-                        <td>{{ $loop->iteration }}</td> 
+                        <td>{{ $loop->iteration }}</td>
                         <td>
                             {{-- @foreach ($users as $user)
                                 @if ($income->user_id == $user->id)
@@ -123,12 +123,12 @@
                             {{ $income->user->employee->nama }}
                         </td>
 
-                        
+
                         <td>@currency($income->nominal)</td>
-                        
+
                         <td>
                             @foreach ($categories as $category)
-                            
+
                             {{-- Tampilin Kategori Sesuai category_id yang lagi di looping --}}
                                 @if ($income->category_id == $category->id)
                                     {{ $category->nama_kategori }}
@@ -136,8 +136,8 @@
                             @endforeach
                         </td>
 
-                        <td>{{ date('d-M-Y H:i', strtotime($income->tanggal)); }}</td>
-                                
+                        <td>{{ date('d-M-Y H:i', strtotime($income->tanggal)) }}</td>
+
                         <td>{{ $income->keterangan }}</td>
 
                         {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}

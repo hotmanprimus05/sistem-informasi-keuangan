@@ -11,7 +11,7 @@
     <h1>{{ $judul }}</h1>
 
 
-    {{-- Laporan Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])); }} --}}
+    {{-- Laporan Tanggal {{ date('d-m-Y', strtotime($tanggal['awal'])) }} sampai {{ date('d-m-Y', strtotime($tanggal['akhir'])) }} --}}
 
     <table border="1" cellspacing="0">
         <thead>
@@ -25,10 +25,10 @@
             </tr>
         </thead>
         <tbody>
-            
+
             @foreach ($reports as $income)
                 <tr>
-                    <td>{{ $loop->iteration }}</td> 
+                    <td>{{ $loop->iteration }}</td>
                     <td>
                         @foreach ($users as $user)
                             @if ($income->user_id == $user->id)
@@ -37,8 +37,8 @@
                         @endforeach
                     </td>
 
-                    <td>{{ date('d/m/Y H:i', strtotime($income->tanggal)); }}</td>
-                    
+                    <td>{{ date('d/m/Y H:i', strtotime($income->tanggal)) }}</td>
+
                     <td>@currency($income->nominal)</td>
 
                     <td>
@@ -65,4 +65,3 @@
 
 </body>
 </html>
-            

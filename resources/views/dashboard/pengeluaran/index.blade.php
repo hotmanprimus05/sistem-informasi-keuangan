@@ -96,18 +96,18 @@
                         <th>Sumber</th>
                         <th>Tanggal</th>
                         <th>Keterangan</th>
-    
+
                         {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}
                         @if (auth()->user()->role_id == 1)
                             <th>Action</th>
-                        @endif 
+                        @endif
                     </tr>
                 </tfoot>
                 <tbody>
-                    
+
                     @foreach ($outcomes as $outcome)
                     <tr>
-                        <td>{{ $loop->iteration }}</td> 
+                        <td>{{ $loop->iteration }}</td>
                         <td>
                             {{-- @foreach ($users as $user)
                                 @if ($outcome->user_id == $user->id)
@@ -131,7 +131,7 @@
                             @endforeach
                         </td>
 
-                        <td>{{ date('d-M-Y H:i', strtotime($outcome->tanggal)); }}</td>
+                        <td>{{ date('d-M-Y H:i', strtotime($outcome->tanggal)) }}</td>
 
                         <td>{{ $outcome->keterangan }}</td>
 

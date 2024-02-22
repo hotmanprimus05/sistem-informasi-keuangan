@@ -78,7 +78,7 @@
                             @endif
                         </td> --}}
                         {{-- <td>{{ $employee->no_telp }}</td> --}}
-                        <td>{{ date('d-M-Y', strtotime($employee->tgl_masuk)); }}</td>
+                        <td>{{ date('d-M-Y', strtotime($employee->tgl_masuk)) }}</td>
                         <td>
                             @if ($employee->status == 1)
                                 <span class="badge text-bg-primary">Karyawan Kontrak</span>
@@ -108,7 +108,7 @@
                         @endif
                     </tr>
                     @endforeach
-                    
+
                 </tbody>
             </table>
             {{-- End Table --}}
