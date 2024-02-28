@@ -6,7 +6,7 @@
     <h2 class="mt-4">Gaji Karyawan</h2>
 
     {{-- Breadcrumb --}}
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-4">
             @if (auth()->user()->role_id == 1)
                 <li class="breadcrumb-item"><a href="/dashboard/admin">Dashboard</a></li>
@@ -19,12 +19,12 @@
     {{-- End Breadcumb --}}
 
     {{-- Button --}}
-    <div class="d-flex">
-        <div class="me-auto me-1">
-            <a href="/gaji-karyawan/create" class="btn btn-primary mb-1 me-1">Input Gaji Karyawan</a>
+    <div class="d-flex mb-3">
+        <div class="me-auto">
+            <a href="/gaji-karyawan/create" class="btn btn-primary me-1">Input Gaji Karyawan</a>
         </div>
 
-        <a href="/gaji" class="btn btn-success mb-1">Data Gaji & Jabatan</a>
+        <a href="/gaji" class="btn btn-success">Data Gaji & Jabatan</a>
 
         {{-- <div class="dropdown ms-1">
             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,19 +51,15 @@
                 </li>
             </ul>
         </div> --}}
-
     </div>
     {{-- End Button --}}
-
-
 
     <div class="row">
         <div class="col-lg-12">
             {{-- Card --}}
             <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    Data Penggajian Karyawan
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Data Penggajian Karyawan</h5>
                 </div>
                 <div class="card-body">
 
@@ -92,16 +88,18 @@
                             </tr>
                         </thead>
                         <tfoot>
-                            <th scope="col">No</th>
-                            <th scope="col">Tanggal</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Jabatan</th>
-                            <th scope="col">Total Gaji</th>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Tanggal</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Jabatan</th>
+                                <th scope="col">Total Gaji</th>
 
-                            {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}
-                            @if (auth()->user()->role_id == 1)
-                                <th scope="col">Action</th>
-                            @endif
+                                {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}
+                                @if (auth()->user()->role_id == 1)
+                                    <th scope="col">Action</th>
+                                @endif
+                            </tr>
                         </tfoot>
                         <tbody>
 
@@ -118,8 +116,8 @@
                                 {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}
                                 @if (auth()->user()->role_id == 1)
                                     <td>
-                                        <a href="/gaji-karyawan/{{ $row->id }}" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
-                                        <a href="/gaji-karyawan/{{ $row->id }}/edit" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                        <a href="/gaji-karyawan/{{ $row->id }}" class="btn btn-sm btn-info me-1"><i class="fas fa-eye"></i></a>
+                                        <a href="/gaji-karyawan/{{ $row->id }}/edit" class="btn btn-sm btn-primary me-1"><i class="fas fa-edit"></i></a>
 
                                         {{-- Delete Button --}}
                                         <form action="/gaji-karyawan/{{ $row->id }}" method="POST" class="d-inline">

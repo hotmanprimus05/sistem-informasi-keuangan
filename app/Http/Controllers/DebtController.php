@@ -38,9 +38,11 @@ class DebtController extends Controller
      */
     public function store(Request $request)
     {
+        $bayar = $request->jumlah_hutang + ($request->jumlah_hutang * $request->bunga/100);
         Debt::create([
             'employee_id'       => $request->nama,
             'jumlah_hutang'     => $request->jumlah_hutang,
+            'jumlah_bayar'      => $bayar,
             'tgl_pinjam'        => date(now()),
             'tgl_jatuh_tempo'   => $request->jatuh_tempo,
             'keterangan'        => "Belum Lunas"

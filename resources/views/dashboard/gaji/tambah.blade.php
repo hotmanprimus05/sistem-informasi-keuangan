@@ -3,10 +3,10 @@
 @section('container')
 
 <div class="container-fluid px-4">
-    <h2 class="mt-4">Gaji & Jabatan - Tambah Data</h2>
+    <h2 class="mt-4 text-center">Gaji & Jabatan - Tambah Data</h2>
 
     {{-- Breadcrumb --}}
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-4">
             @if (auth()->user()->role_id == 1)
                 <li class="breadcrumb-item"><a href="/dashboard/admin">Dashboard</a></li>
@@ -20,10 +20,11 @@
     </nav>
     {{-- End Breadcrumb --}}
 
-    <div class="row">
-        <div class="col-lg-6 col-md-6">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            {{-- Card --}}
             <div class="card mb-4">
-                <div class="card-header">
+                <div class="card-header bg-primary text-white">
                     <i class="fas fa-table me-1"></i>
                     Form Tambah Data Gaji & Jabatan
                 </div>
@@ -31,7 +32,6 @@
                     {{-- Form --}}
                     <form action="/gaji" method="POST">
 
-                        @method('post')
                         @csrf
 
                         <div class="mb-3 row">
@@ -62,12 +62,14 @@
                             </div>
                         </div>
 
-                        
-
-                        <button type="submit" class="btn btn-primary mb-3">Tambah</button>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Tambah</button>
+                        </div>
                     </form>
+                    {{-- End Form --}}
                 </div>
             </div>
+            {{-- End Card --}}
         </div>
     </div>
 

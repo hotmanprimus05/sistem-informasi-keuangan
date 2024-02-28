@@ -29,10 +29,8 @@
                 <div class="card-body">
                     {{-- Form --}}
                     <form action="/karyawan" method="POST">
-
-                        @method('post')
                         @csrf
-                        
+
                         <div class="mb-3 row">
                             <label for="nip" class="col-sm-4 col-form-label">NIP</label>
                             <div class="col-sm-8">
@@ -113,7 +111,7 @@
                                 <input type="date" class="form-control" id="tgl_masuk" name="tgl_masuk" required>
                             </div>
                         </div>
-                        
+
 
                         <button type="submit" class="btn btn-primary mb-3">Tambah</button>
                     </form>

@@ -8,11 +8,13 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CetakController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardKaryawanController;
 use App\Http\Controllers\DebtController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\EmployeeSalaryController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,21 +29,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route Authentication
-Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/', [LoginController::class, 'dologin'])->middleware('guest');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/', [LoginController::class, 'dologin']);
+});
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
+
 
 // Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 // Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
+
 // Route Halaman Admin & Bendahara
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [Controller::class, 'redirectToDashboard']);
+});
+
 Route::get('/dashboard/admin', [AdminController::class, 'index'])->middleware('admin');
 Route::get('/dashboard/bendahara', [PegawaiController::class, 'index'])->middleware('auth');
 
 
 /**
  * Route Role Karyawan
- * 
+ *
  */
 Route::get('/dashboard/karyawan', [DashboardKaryawanController::class, 'index'])->middleware('auth');
 Route::get('/dashboard/karyawan/profile', [DashboardKaryawanController::class, 'myProfile'])->middleware('auth');
@@ -58,7 +68,7 @@ Route::post('/dashboard/karyawan/change-password', [DashboardKaryawanController:
 
 /**
  * Route Profile & Ganti Password (Admin & Bendahara)
- * 
+ *
  */
 Route::get('/profile', [AdminController::class, 'profile'])->middleware('auth');
 Route::get('/profile/edit-account', [AdminController::class, 'editAccount'])->middleware('auth');
@@ -93,7 +103,7 @@ Route::resource('/gaji-karyawan', EmployeeSalaryController::class)->middleware('
 | Route Cetak Laporan: PRINT - PDF - EXCEL
 |--------------------------------------------------------------------------
 |
-| Disini kamu bisa mengatur penjaluran (routing) halaman utama cetak laporan, 
+| Disini kamu bisa mengatur penjaluran (routing) halaman utama cetak laporan,
 | halaman untuk cetak PRINT, PDF & EXCEL.
 |
 */
@@ -131,7 +141,7 @@ Route::get('/cetak-laporan/excel-semua-hutang', [CetakController::class, 'allExc
 // Gaji Karyawan
 Route::get('/cetak-print-gaji-karyawan', [CetakController::class, 'printGajiKaryawan'])->middleware('auth');
 Route::get('/cetak-pdf-gaji-karyawan', [CetakController::class, 'gajiKaryawanPDF'])->middleware('auth');
-// Route::get('/cetak-print-semua-gaji-karyawan', [CetakController::class, 'printAllGajiKaryawan'])->middleware('auth');
+Route::get('/cetak-print-semua-gaji-karyawan', [CetakController::class, 'printAllGajiKaryawan'])->middleware('auth');
 
 Route::get('cetak-laporan/print-gaji-karyawan', [CetakController::class, 'printSemuaGajiKaryawan'])->middleware('auth');
 Route::get('cetak-laporan/pdf-gaji-karyawan', [CetakController::class, 'PDFSemuaGajiKaryawan'])->middleware('auth');

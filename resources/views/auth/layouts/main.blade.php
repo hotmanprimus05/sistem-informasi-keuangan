@@ -9,7 +9,7 @@
         <link rel="icon" type="image/x-icon" href="{{ URL::asset('img/software.png') }}">
 
         {{-- Bootstrap 5.3 - CSS --}}
-        <link href="{{ URL::asset('bootstrap-5.3.0-alpha3/css/bootstrap.min.css') }}" 
+        <link href="{{ URL::asset('bootstrap-5.3.0-alpha3/css/bootstrap.min.css') }}"
         rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
         {{-- Custom Style CSS Login --}}

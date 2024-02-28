@@ -64,16 +64,16 @@
                                 <input type="date" class="form-control" name="jatuh_tempo" required>
                             </div>
                         </div>
-                        
 
-                        {{-- <div class="mb-3 row">
-                            <label for="jumlah_bayar" class="col-sm-4 col-form-label">Jumlah Bayar</label>
+
+                        <div class="mb-3 row">
+                            <label for="bunga" class="col-sm-4 col-form-label">Bunga</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="jumlah_bayar" name="jumlah_bayar" required>
+                                <input type="number" class="form-control" id="bunga" name="bunga" placeholder="* inputan dalam satuan persen" required>
                             </div>
-                        </div> --}}
+                        </div>
 
-                        {{-- <div class="mb-3 row">
+                        <div class="mb-3 row">
                             <label for="keterangan" class="col-sm-4 col-form-label">Keterangan</label>
                             <div class="col-sm-8">
                                 <select class="form-select" id="keterangan" name="keterangan" aria-readonly="true">
@@ -81,7 +81,7 @@
                                     <option value="Belum Lunas">Belum Lunas</option>
                                 </select>
                             </div>
-                        </div> --}}
+                        </div>
 
 
                         <button type="submit" class="btn btn-primary mb-3">Tambah</button>
