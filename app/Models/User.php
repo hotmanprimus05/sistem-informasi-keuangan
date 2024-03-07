@@ -73,4 +73,18 @@ class User extends Authenticatable
     {
         return $this->password;
     }
+    public function isAdmin()
+    {
+        return $this->role->role_name === 'admin';
+    }
+
+    public function isBendahara()
+    {
+        return $this->role->role_name === 'bendahara';
+    }
+
+    public function isKaryawan()
+    {
+        return $this->role->role_name === 'karyawan';
+    }
 }

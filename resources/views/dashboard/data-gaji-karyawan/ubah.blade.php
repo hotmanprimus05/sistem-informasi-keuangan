@@ -6,7 +6,7 @@
     <h2 class="mt-4">Gaji Karyawan - Ubah Data</h2>
 
     {{-- Breadcrumb --}}
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-4">
             @if (auth()->user()->role_id == 1)
                 <li class="breadcrumb-item"><a href="/dashboard/admin">Dashboard</a></li>
@@ -18,10 +18,10 @@
         </ol>
     </nav>
 
-    <div class="row">
-        <div class="col-lg-6 col-md-6">
+    <div class="row justify-content-center"> <!-- Center aligning the card -->
+        <div class="col-lg-6">
             <div class="card mb-4">
-                <div class="card-header">
+                <div class="card-header bg-primary text-white">
                     <i class="fas fa-table me-1"></i>
                     Form Ubah Data Penggajian Karyawan
                 </div>
@@ -36,9 +36,6 @@
                             <label for="karyawan_id" class="col-sm-4 col-form-label">Nama & Jabatan</label>
                             <div class="col-sm-8">
                                 <select name="karyawan_id" id="karyawan_id" class="form-select">
-                                    {{-- @foreach ($employees as $employees)
-                                        <option value="{{ $employees->id }}">{{ $employees->nama }}</option>
-                                    @endforeach --}}
                                     @foreach ($employees as $employee)
                                         @if ($employee->id == $employeeSalary->karyawan_id)
                                             <option value="{{ $employee->id }}" selected>{{ $employee->nama }} - {{ $employeeSalary->salary->jabatan }}</option>
@@ -72,23 +69,14 @@
                             </div>
                         </div>
 
-                        {{-- <div class="mb-3 row">
-                            <label for="uang_makan" class="col-sm-4 col-form-label">Uang Makan</label>
-                            <div class="col-sm-8">
-                                <input type="number" class="form-control" id="uang_makan" name="uang_makan" value="{{ old('uang_makan', $salary->uang_makan) }}" required>
-                            </div>
-                        </div> --}}
-
-                        
-
-                        <button type="submit" class="btn btn-primary mb-3">Simpan</button>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary mb-3">Simpan</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-
 </div>
 
 @endsection

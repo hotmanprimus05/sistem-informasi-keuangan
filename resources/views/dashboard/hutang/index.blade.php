@@ -19,11 +19,11 @@
 
     {{-- Button --}}
     <div class="d-flex">
-        {{-- <div class="me-auto">
+        <div class="me-auto">
             <a href="/hutang/create" class="btn btn-primary mb-1">Tambah Data Hutang</i></a>
-        </div> --}}
+        </div>
 
-        {{-- <div class="dropdown">
+        <div class="dropdown">
             <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Cetak Semua Data Hutang
             </button>
@@ -47,7 +47,7 @@
                     </form>
                 </li>
             </ul>
-        </div> --}}
+        </div>
     </div>
     {{-- End Button --}}
 
@@ -121,7 +121,7 @@
                                     @else
                                         {{ date('d/m/Y', strtotime($debt->tgl_jatuh_tempo)) }}
                                     @endif
-                                    
+
                                 @endif
                             </td>
 
@@ -145,11 +145,11 @@
                             </td>
 
                             {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}
-                            
+
                                 <td>
                                     {{-- Button Edit --}}
                                     <a href="/hutang/{{ $debt->id }}/edit" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-        
+
                                     @if (auth()->user()->role_id == 1)
                                         {{-- Delete Button --}}
                                         <form action="/hutang/{{ $debt->id }}" method="POST" class="d-inline">
@@ -161,12 +161,12 @@
                                         </form>
                                     @endif
                                 </td>
-                            
+
                         </tr>
-                        
+
                     @endforeach
-                    
-                    
+
+
                 </tbody>
             </table>
             {{-- End Table --}}

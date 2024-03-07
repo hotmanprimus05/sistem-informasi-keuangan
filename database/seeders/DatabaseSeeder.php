@@ -35,55 +35,63 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Category::create([
-            'nama_kategori'     => 'Obat-Obatan',
+            'nama_kategori'     => 'Web Site',
             'jenis_kategori'    => 'Pemasukan'
         ]);
         Category::create([
-            'nama_kategori'     => 'Obat-Obatan',
+            'nama_kategori'     => 'Web Site',
             'jenis_kategori'    => 'Pengeluaran'
         ]);
         Category::create([
-            'nama_kategori'     => 'Vitamin & Suplemen',
+            'nama_kategori'     => 'Mobile Apps',
             'jenis_kategori'    => 'Pemasukan'
         ]);
         Category::create([
-            'nama_kategori'     => 'Vitamin & Suplemen',
+            'nama_kategori'     => 'Mobile Apps',
             'jenis_kategori'    => 'Pengeluaran'
         ]);
         Category::create([
-            'nama_kategori'     => 'Kebutuhan Alat-Alat Kantor',
+            'nama_kategori'     => 'Kebutuhan Alat-Alat Ub',
             'jenis_kategori'    => 'Pengeluaran'
         ]);
         Category::create([
-            'nama_kategori'     => 'Alat Timbangan',
+            'nama_kategori'     => 'Alat Lab.HW',
             'jenis_kategori'    => 'Pemasukan'
         ]);
         Category::create([
-            'nama_kategori'     => 'Alat Timbangan',
+            'nama_kategori'     => 'Alat Lab.HW',
             'jenis_kategori'    => 'Pengeluaran'
         ]);
         Category::create([
-            'nama_kategori'     => 'Inhaler & Nebulizer',
+            'nama_kategori'     => 'Alat Lab.RPL',
             'jenis_kategori'    => 'Pemasukan'
         ]);
         Category::create([
-            'nama_kategori'     => 'Inhaler & Nebulizer',
+            'nama_kategori'     => 'Alat Lab.RPL',
             'jenis_kategori'    => 'Pengeluaran'
         ]);
         Category::create([
-            'nama_kategori'     => 'Termometer',
+            'nama_kategori'     => 'Praktek Kerja',
             'jenis_kategori'    => 'Pemasukan'
         ]);
         Category::create([
-            'nama_kategori'     => 'Termometer',
+            'nama_kategori'     => 'Praktek Kerja',
             'jenis_kategori'    => 'Pengeluaran'
         ]);
         Category::create([
-            'nama_kategori'     => 'Tensimeter',
+            'nama_kategori'     => 'Service Barang',
             'jenis_kategori'    => 'Pemasukan'
         ]);
         Category::create([
-            'nama_kategori'     => 'Tensimeter',
+            'nama_kategori'     => 'Service Barang',
+            'jenis_kategori'    => 'Pengeluaran'
+        ]);
+        Category::create([
+            'nama_kategori'     => 'Lainnya',
+            'jenis_kategori'    => 'Pemasukan'
+        ]);
+        Category::create([
+            'nama_kategori'     => 'Lainnya',
             'jenis_kategori'    => 'Pengeluaran'
         ]);
 
@@ -101,22 +109,28 @@ class DatabaseSeeder extends Seeder
             'uang_makan'    => 300000
         ]);
         Salary::create([
-            'jabatan'       => 'Apoteker',
+            'jabatan'       => 'UB Jurusan',
             'gaji_pokok'    => 4000000,
             'tj_transport'  => 300000,
             'uang_makan'    => 300000
         ]);
         Salary::create([
-            'jabatan'       => 'Asisten Apoteker ',
+            'jabatan'       => 'K3',
             'gaji_pokok'    => 3500000,
             'tj_transport'  => 300000,
             'uang_makan'    => 300000
         ]);
         Salary::create([
-            'jabatan'       => 'Seksi Gudang',
+            'jabatan'       => 'Guru',
             'gaji_pokok'    => 4100000,
             'tj_transport'  => 300000,
             'uang_makan'    => 300000
+        ]);
+        Salary::create([
+            'jabatan'       => 'OB',
+            'gaji_pokok'    => 3100000,
+            'tj_transport'  => 100000,
+            'uang_makan'    => 150000
         ]);
 
         // Employee
@@ -126,9 +140,9 @@ class DatabaseSeeder extends Seeder
             'nip'           => '01136738',
             'nama'          => 'Putra Agustiansyah',
             'jenis_kelamin' => 'L',
-            'tempat_lahir'  => 'Tangerang',
+            'tempat_lahir'  => 'Semarang',
             'tgl_lahir'     => '2001-09-08',
-            'alamat'        => 'Jl. Sudirman Selatan No. 34',
+            'alamat'        => 'Jl. Palir Raya No.66 - 68, Podorejo',
             'no_telp'       => '089691497717',
             'no_rek'        => '26384853',
             'bank'          => 'BCA',
@@ -140,9 +154,9 @@ class DatabaseSeeder extends Seeder
             'nip'           => '01276738',
             'nama'          => 'Umaya Hutagalung',
             'jenis_kelamin' => 'P',
-            'tempat_lahir'  => 'Cikarang',
+            'tempat_lahir'  => 'Semarang',
             'tgl_lahir'     => '2003-09-08',
-            'alamat'        => 'Jl. Sudirman Selatan No. 34',
+            'alamat'        => 'Jl. Palir Raya No.66 - 68, Podorejo',
             'no_telp'       => '089654678652',
             'no_rek'        => '76384853',
             'bank'          => 'Mandiri',
@@ -154,9 +168,9 @@ class DatabaseSeeder extends Seeder
             'nip'           => '01376738',
             'nama'          => 'Edi Ardianto',
             'jenis_kelamin' => 'L',
-            'tempat_lahir'  => 'Surabaya',
+            'tempat_lahir'  => 'Semarang',
             'tgl_lahir'     => '2002-09-08',
-            'alamat'        => 'Jl. Sudirman Selatan No. 34',
+            'alamat'        => 'Jl. Palir Raya No.66 - 68, Podorejo',
             'no_telp'       => '089654676667',
             'no_rek'        => '56384853',
             'bank'          => 'BRI',
@@ -168,9 +182,9 @@ class DatabaseSeeder extends Seeder
             'nip'           => '01476738',
             'nama'          => 'Ludwina Fathihah',
             'jenis_kelamin' => 'P',
-            'tempat_lahir'  => 'Tangerang',
+            'tempat_lahir'  => 'Semarang',
             'tgl_lahir'     => '2001-06-12',
-            'alamat'        => 'Jl. Sudirman Selatan No. 34',
+            'alamat'        => 'Jl. Palir Raya No.66 - 68, Podorejo',
             'no_telp'       => '089654677832',
             'no_rek'        => '96384853',
             'bank'          => 'BCA',

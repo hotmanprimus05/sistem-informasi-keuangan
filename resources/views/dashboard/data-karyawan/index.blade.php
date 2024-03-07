@@ -20,16 +20,15 @@
 
     {{-- Button --}}
     <div class="d-flex">
-        <a href="/karyawan/create" class="btn btn-primary mb-1">Tambah Data Karyawan</a>
+        <a href="/karyawan/create" class="btn btn-primary mb-3">Tambah Data Karyawan</a>
     </div>
     {{-- End Button --}}
 
 
     {{-- Card --}}
     <div class="card mb-4">
-        <div class="card-header">
-            <i class="fas fa-table me-1"></i>
-            Data Karyawan
+        <div class="card-header bg-primary text-white">
+            <h5>Data Karyawan</h5>
         </div>
         <div class="card-body">
 

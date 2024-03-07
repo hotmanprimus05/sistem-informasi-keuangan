@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('employee_id')->constrained('employees');
             $table->integer('jumlah_hutang')->default(0);
-            // $table->integer('jumlah_bayar')->nullable();
+            $table->integer('jumlah_bayar')->nullable();
             // $table->integer('sisa_hutang')->nullable();
             $table->date('tgl_pinjam')->default(date(now()));
             $table->date('tgl_jatuh_tempo')->nullable();
             $table->string('keterangan', 16)->default('Belum Lunas');
-            $table->text('alasan');
+            $table->text('alasan')->nullable();
             $table->integer('status')->default(2);
             $table->timestamps();
         });

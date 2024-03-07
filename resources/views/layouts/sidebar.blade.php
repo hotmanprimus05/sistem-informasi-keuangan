@@ -62,7 +62,7 @@
                         Hutang
                     </a>
 
-                    
+
 
                     @if (auth()->user()->role_id == 1)
                         <a class="nav-link {{ Request::is('karyawan*') ? 'active' : '' }}" href="/karyawan">
@@ -110,7 +110,7 @@
                         Ganti Password
                     </a>
                 @endif
-                
+
             </div>
         </div>
         <div class="sb-sidenav-footer">

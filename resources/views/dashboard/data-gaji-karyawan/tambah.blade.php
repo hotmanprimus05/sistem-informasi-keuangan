@@ -6,7 +6,7 @@
     <h2 class="mt-4">Gaji Karyawan - Tambah Data</h2>
 
     {{-- Breadcrumb --}}
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-4">
             @if (auth()->user()->role_id == 1)
                 <li class="breadcrumb-item"><a href="/dashboard/admin">Dashboard</a></li>
@@ -18,10 +18,10 @@
         </ol>
     </nav>
 
-    <div class="row">
-        <div class="col-lg-6 col-md-6">
+    <div class="row justify-content-center"> <!-- Center aligning the card -->
+        <div class="col-lg-6">
             <div class="card mb-4">
-                <div class="card-header">
+                <div class="card-header bg-primary text-white"> <!-- Card header primary -->
                     <i class="fas fa-table me-1"></i>
                     Form Tambah Data Penggajian Karyawan
                 </div>
@@ -31,7 +31,7 @@
 
                         @method('post')
                         @csrf
-                        
+
                         <div class="mb-3 row">
                             <label for="karyawan_id" class="col-sm-4 col-form-label">Nama & Jabatan</label>
                             <div class="col-sm-8">
@@ -63,16 +63,14 @@
                             </div>
                         </div>
 
-                        
-
-                        <button type="submit" class="btn btn-primary mb-3">Tambah</button>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Tambah</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-
 </div>
 
 @endsection

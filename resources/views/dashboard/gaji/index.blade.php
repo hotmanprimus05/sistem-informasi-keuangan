@@ -3,11 +3,11 @@
 @section('container')
 
 <div class="container-fluid px-4">
-    <h2 class="mt-4">Data Gaji & Jabatan</h2>
+    <h2 class="mt-4 text-center">Data Gaji & Jabatan</h2>
 
     {{-- Breadcrumb --}}
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-        <ol class="breadcrumb mb-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-4">
             @if (auth()->user()->role_id == 1)
                 <li class="breadcrumb-item"><a href="/dashboard/admin">Dashboard</a></li>
             @else
@@ -17,22 +17,20 @@
             <li class="breadcrumb-item active">Data Gaji & Jabatan</li>
         </ol>
     </nav>
-    {{-- End Breadcumb --}}
+    {{-- End Breadcrumb --}}
 
     {{-- Button --}}
-    <div class="d-flex">
+    <div class="text-center mb-3">
         <a href="/gaji/create" class="btn btn-primary mb-1">Tambah Data Gaji & Jabatan</a>
         {{-- <a href="/gaji-karyawan" class="btn btn-success ms-2 mb-1">Gaji Karyawan</a> --}}
     </div>
     {{-- End Button --}}
 
-
-
-    <div class="row">
-        <div class="col-lg-12">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
             {{-- Card --}}
             <div class="card mb-4">
-                <div class="card-header">
+                <div class="card-header bg-primary text-white">
                     <i class="fas fa-table me-1"></i>
                     Data Gaji & Jabatan
                 </div>
@@ -47,76 +45,71 @@
                     @endif
 
                     {{-- Table --}}
-                    <table id="datatablesSimple" class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Jabatan</th>
-                                <th scope="col">Gaji Pokok</th>
-                                <th scope="col">Tunjangan Transport</th>
-                                <th scope="col">Uang Makan</th>
-                                <th scope="col">Total Gaji</th>
-
-                                {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}
-                                @if (auth()->user()->role_id == 1)
-                                    <th scope="col">Action</th>
-                                @endif
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <th scope="col">No</th>
-                            <th scope="col">Jabatan</th>
-                            <th scope="col">Gaji Pokok</th>
-                            <th scope="col">Tunjangan Transport</th>
-                            <th scope="col">Uang Makan</th>
-                            <th scope="col">Total Gaji</th>
-
-                            {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}
-                            @if (auth()->user()->role_id == 1)
-                                    <th scope="col">Action</th>
-                            @endif
-                        </tfoot>
-                        <tbody>
-
-                            @foreach ($salaries as $salary)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $salary->jabatan }}</td>
-                                <td>@currency($salary->gaji_pokok)</td>
-                                <td>@currency($salary->tj_transport)</td>
-                                <td>@currency($salary->uang_makan)</td>
-                                <td>@currency($salary->gaji_pokok + $salary->tj_transport + $salary->uang_makan)</td>
-
-                                {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}
-                                @if (auth()->user()->role_id == 1)
-                                <td>
-                                    {{-- Button Edit --}}
-                                    <a href="/gaji/{{ $salary->id }}/edit" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-
-                                    {{-- Delete Button --}}
-                                    <form action="/gaji/{{ $salary->id }}" method="POST" class="d-inline">
-                                        @method('delete')
-                                        @csrf
-                                        <button class="btn btn-sm btn-danger" onclick="return confirm('Hapus gaji ini?')">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            @endif
-                            </tr>
-                            @endforeach
-                            
-                            
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table id="datatablesSimple" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Jabatan</th>
+                                    <th scope="col">Gaji Pokok</th>
+                                    <th scope="col">Tunjangan Transport</th>
+                                    <th scope="col">Uang Makan</th>
+                                    <th scope="col">Total Gaji</th>
+                                    {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}
+                                    @if (auth()->user()->role_id == 1)
+                                        <th scope="col">Action</th>
+                                    @endif
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($salaries as $salary)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $salary->jabatan }}</td>
+                                        <td>@currency($salary->gaji_pokok)</td>
+                                        <td>@currency($salary->tj_transport)</td>
+                                        <td>@currency($salary->uang_makan)</td>
+                                        <td>@currency($salary->gaji_pokok + $salary->tj_transport + $salary->uang_makan)</td>
+                                        {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}
+                                        @if (auth()->user()->role_id == 1)
+                                            <td>
+                                                {{-- Button Edit --}}
+                                                <a href="/gaji/{{ $salary->id }}/edit" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                                {{-- Delete Button --}}
+                                                <form action="/gaji/{{ $salary->id }}" method="POST" class="d-inline">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="btn btn-sm btn-danger" onclick="return confirm('Hapus gaji ini?')">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Jabatan</th>
+                                    <th scope="col">Gaji Pokok</th>
+                                    <th scope="col">Tunjangan Transport</th>
+                                    <th scope="col">Uang Makan</th>
+                                    <th scope="col">Total Gaji</th>
+                                    {{-- Jika bukan super admin, maka tidak boleh mengubah dan menghapus --}}
+                                    @if (auth()->user()->role_id == 1)
+                                        <th scope="col">Action</th>
+                                    @endif
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                     {{-- End Table --}}
                 </div>
             </div>
             {{-- End Card --}}
         </div>
     </div>
-
-    
 </div>
 
 @endsection
